@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+    $('#bookingForm')[0].reset();
     // Booking form submission
     $('#bookingForm').on('submit', function (event) {
       event.preventDefault();
@@ -7,6 +9,11 @@ $(document).ready(function () {
       const checkoutDate = $('#checkoutDate').val();
       const guests = $('#guests').val();
       const roomType = $('#roomType').val();
+
+      if (new Date(checkinDate) >= new Date(checkoutDate)) {
+        alert('Check-in date must be before check-out date');
+        return;
+      }
   
       $.ajax({
         url: '/booking',
@@ -26,7 +33,7 @@ $(document).ready(function () {
           }
         },
       });
-    });
+    }); 
   
     // Contact us form submission
     $('#contactUsForm').on('submit', function (event) {

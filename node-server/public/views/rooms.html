@@ -14,23 +14,23 @@
     <header>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark">
-                <a class="navbar-brand" href="home.html"><img src="../images/logo.png" alt="Placeholder Hotel" height="30"></a>
+                <a class="navbar-brand" href="./home.html"><img src="../img/logo.jpg" alt="Matt & Cameron Hotel" height="60"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="./home.html">Home</a>
+                            <a class="nav-link" href="/home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./rooms.html">Rooms <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/rooms">Rooms <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./aboutus.html">About Us</a>
+                            <a class="nav-link" href="/aboutus">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./contactus.html">Contact Us</a>
+                            <a class="nav-link" href="/contactus">Contact Us</a>
                         </li>
                     </ul>
                 </div>
@@ -45,7 +45,7 @@
                 <!-- Single Queen -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="single-queen.jpg" class="card-img-top" alt="Single Queen Room">
+                        <img src="../img/single_room.jpg" class="card-img-top" alt="Single Queen Room" height="200">
                         <div class="card-body">
                             <h5 class="card-title">Single Queen</h5>
                             <p class="card-text">Our Single Queen room offers a comfortable queen-sized bed and modern amenities for a relaxing stay.</p>
@@ -56,7 +56,7 @@
                 <!-- Double Queen -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="double-queen.jpg" class="card-img-top" alt="Double Queen Room">
+                        <img src="../img/double_room.jpg" class="card-img-top" alt="Double Queen Room" height="200">
                         <div class="card-body">
                             <h5 class="card-title">Double Queen</h5>
                             <p class="card-text">The Double Queen room features two queen-sized beds and ample space for families or groups.</p>
@@ -64,27 +64,27 @@
                     </div>
                 </div>
 
-                <!-- Deluxe King -->
+                <!-- Deluxe Suite -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="deluxe-king.jpg" class="card-img-top" alt="Deluxe King Room">
+                        <img src="../img/triple_room.jpg" class="card-img-top" alt="Deluxe Suite Room" height="200">
                         <div class="card-body">
-                            <h5 class="card-title">Deluxe King</h5>
-                            <p class="card-text">Experience the luxury of our Deluxe King room, complete with a king-sized bed and premium amenities.</p>
+                            <h5 class="card-title">Deluxe Suite</h5>
+                            <p class="card-text">Experience the luxury of our Deluxe Suite room, complete with two king-sized bed and premium amenities.</p>
                         </div>
                     </div>
                 </div>
             </div>
             <h2 class="my-4">Book a Room</h2>
-            <form>
+            <form id="bookingForm">
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="checkInDate">Check-in Date</label>
-                        <input type="date" class="form-control" id="checkInDate" required>
+                        <label for="checkinDate">Check-in Date</label>
+                        <input type="date" class="form-control" id="checkinDate" name="checkinDate" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="checkOutDate">Check-out Date</label>
-                        <input type="date" class="form-control" id="checkOutDate" required>
+                        <label for="checkoutDate">Check-out Date</label>
+                        <input type="date" class="form-control" id="checkoutDate" name="checkoutDate" required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -98,7 +98,7 @@
                             <option selected disabled>Select a room type</option>
                             <option value="single_queen">Single Queen</option>
                             <option value="double_queen">Double Queen</option>
-                            <option value="deluxe_king">Deluxe King</option>
+                            <option value="deluxe_suite">Deluxe Suite</option>
                         </select>
                     </div>
                 </div>
@@ -110,5 +110,7 @@
     <footer class="text-center text-white py-3">
         <p>&copy; 2023 Placeholder Hotel. All rights reserved.</p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
