@@ -10,20 +10,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Set up PostgreSQL connection
-const pool1 = new Pool({  // in progress
-    user: 'user',
-    host: 'host',
-    database: 'booking',
+const pool = new Pool({
+    user: 'postgres',
+    host: 'iti-200-final-db.ckrriscebioc.us-east-2.rds.amazonaws.com',
+    database: 'iti200_final_database',
     password: 'postgres',
     port: '5432',
 });
 
-const pool2 = new Pool({  // in progress
-  user: 'user',
-  host: 'host',
-  database: 'contactus',
-  password: 'postgres',
-  port: '5432',
+// Check PostgreSQL connection
+pool.query('SELECT NOW()', (err, res) => {
+  if (err) {
+    console.error('Error connecting to the database:', err);
+  } else {
+    console.log('Connected to the database. Server time:', res.rows[0].now);
+  }
 });
 
 // Serve static files
@@ -76,11 +77,14 @@ app.post('/booking', async (req, res) => {
 
 // POST method for contact us form
 app.post('/contactus', async (req, res) => {
+  console.log('Contact Us route hit');
   try {
-    const { name, email, phoneNumber, message } = req.body;
+    const { name, email, phone, message } = req.body;
+    console.log('Contact date:', { name, email, phone, message });
+
     const result = await pool.query(
-      'INSERT INTO contact_us (name, email, phone_number, message) VALUES ($1, $2, $3, $4) RETURNING id',
-      [name, email, phoneNumber, message]
+      'INSERT INTO contact_us (name, email, phone, message) VALUES ($1, $2, $3, $4) RETURNING id',
+      [name, email, phone, message]
     );
     res.json({ success: true, contactId: result.rows[0].id });
   } catch (error) {

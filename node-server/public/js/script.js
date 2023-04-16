@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
-    $('#bookingForm')[0].reset();
+    // Reset active form
+    $('form:visible')[0].reset();
+
     // Booking form submission
     $('#bookingForm').on('submit', function (event) {
       event.preventDefault();
@@ -37,11 +39,12 @@ $(document).ready(function () {
   
     // Contact us form submission
     $('#contactUsForm').on('submit', function (event) {
+
       event.preventDefault();
   
       const name = $('#name').val();
       const email = $('#email').val();
-      const phoneNumber = $('#phoneNumber').val();
+      const phone = $('#phone').val();
       const message = $('#message').val();
   
       $.ajax({
@@ -50,7 +53,7 @@ $(document).ready(function () {
         data: {
           name,
           email,
-          phoneNumber,
+          phone,
           message,
         },
         success: function (response) {
