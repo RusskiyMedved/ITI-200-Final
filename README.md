@@ -16,3 +16,6 @@ https://iti-200-final-images.s3.us-east-2.amazonaws.com/img/triple_room.jpg
 
 ec2 url: 
 http://ec2-18-220-36-99.us-east-2.compute.amazonaws.com:3000
+
+youtube link:
+https://youtu.be/OAV8xvFIHXw
